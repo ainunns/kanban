@@ -1,17 +1,19 @@
-import * as React from "react";
 import "./../../styles/components/board.css";
-import Chips from "../Chips";
+
+import * as React from "react";
 import { FaCalendar } from "react-icons/fa";
+
+import Chips from "../Chips";
 
 export default function BoardTicket({ title, description }) {
   return (
     <div className="board__content__ticket">
       <div className="board__content__ticket__tags">
-        <Chips children="FE" color="primary" />
-        <Chips children="BE" color="success" />
-        <Chips children="UI/UX" color="warning" />
-        <Chips children="Infra" color="danger" />
-        <Chips children="QA" color="default" />
+        <Chips color="primary">FE</Chips>
+        <Chips color="success">BE</Chips>
+        <Chips color="warning">UI/UX</Chips>
+        <Chips color="danger">Infra</Chips>
+        <Chips color="default">QA</Chips>
       </div>
       <div className="board__content__ticket__detail">
         <h3 className="board__content__ticket__title">{title}</h3>

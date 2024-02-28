@@ -1,11 +1,13 @@
-import * as React from "react";
 import "./../../styles/components/board.css";
+
 import clsx from "clsx";
+import * as React from "react";
+import { FaPlus } from "react-icons/fa";
+
 import {
   BoardColorRecord,
   BorderTopBoardColorRecord,
 } from "../../constants/BoardColor";
-import { FaPlus } from "react-icons/fa";
 import BoardTicket from "./BoardTicket";
 
 export default function Board({ title, ticketCount }) {

@@ -1,7 +1,9 @@
-import * as React from "react";
-import { Link } from "react-router-dom";
-import { FaGithub } from "react-icons/fa";
 import "./../styles/app/index.css";
+
+import * as React from "react";
+import { FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 import Board from "../components/Board/BoardStatus";
 
 function App() {
