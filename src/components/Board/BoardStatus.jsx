@@ -6,6 +6,7 @@ import {
   BorderTopBoardColorRecord,
 } from "../../constants/BoardColor";
 import { FaPlus } from "react-icons/fa";
+import BoardTicket from "./BoardTicket";
 
 export default function Board({ title, ticketCount }) {
   return (
@@ -46,12 +47,10 @@ export default function Board({ title, ticketCount }) {
         </button>
       </div>
       <div className="board__content">
-        <div className="board__content__ticket">
-          <h3 className="board__content__ticket__title">Ticket 1</h3>
-          <p className="board__content__ticket__description">
-            This is a ticket description.
-          </p>
-        </div>
+        <BoardTicket
+          title="Ticket 1"
+          description="This is a ticket description"
+        />
       </div>
     </div>
   );

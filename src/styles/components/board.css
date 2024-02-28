@@ -122,8 +122,21 @@
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  row-gap: 8px;
+  row-gap: 16px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.board__content__ticket__tags {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  column-gap: 8px;
+}
+
+.board__content__ticket__detail {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
 }
 
 .board__content__ticket__title {
@@ -136,5 +149,24 @@
   font-size: 14px;
   font-weight: 400;
   color: #979392;
+  margin: 0;
+}
+
+.board__content__ticket__date {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.board__content__ticket__date__icon {
+  font-size: 16px;
+  color: #323131;
+}
+
+.board__content__ticket__date__text {
+  font-size: 12px;
+  font-weight: 400;
+  color: #45484d;
   margin: 0;
 }
