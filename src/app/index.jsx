@@ -1,12 +1,33 @@
 import "./../styles/app/index.css";
 
+import { useQuery } from "@tanstack/react-query";
 import * as React from "react";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 import Board from "../components/Board/BoardStatus";
+import Loading from "../components/Loading";
 
 function App() {
+  const { data: boardData, isPending: isLoading } = useQuery({
+    queryKey: ["/task"],
+  });
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  const unarchiveTickets = boardData.data.tasks.filter(
+    (ticket) => !ticket.deletedAt
+  );
+
+  const [backlogTickets, readyTickets, inProgressTickets, doneTickets] = [
+    unarchiveTickets.filter((ticket) => ticket.status === "backlog"),
+    unarchiveTickets.filter((ticket) => ticket.status === "ready"),
+    unarchiveTickets.filter((ticket) => ticket.status === "in progress"),
+    unarchiveTickets.filter((ticket) => ticket.status === "done"),
+  ];
+
   return (
     <main className="container--main">
       <section className="header">
@@ -19,10 +40,10 @@ function App() {
         </h6>
       </section>
       <section className="container--app">
-        <Board title="Backlog" ticketCount={5} />
-        <Board title="Ready" ticketCount={15} />
-        <Board title="In Progress" ticketCount={5} />
-        <Board title="Done" ticketCount={5} />
+        <Board title="Backlog" data={backlogTickets} />
+        <Board title="Ready" data={readyTickets} />
+        <Board title="In Progress" data={inProgressTickets} />
+        <Board title="Done" data={doneTickets} />
       </section>
     </main>
   );

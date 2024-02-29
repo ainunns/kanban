@@ -10,7 +10,9 @@ import {
 } from "../../constants/BoardColor";
 import BoardTicket from "./BoardTicket";
 
-export default function Board({ title, ticketCount }) {
+export default function Board({ title, data }) {
+  const ticketCount = data.length;
+
   return (
     <div
       className={clsx(
@@ -49,10 +51,9 @@ export default function Board({ title, ticketCount }) {
         </button>
       </div>
       <div className="board__content">
-        <BoardTicket
-          title="Ticket 1"
-          description="This is a ticket description"
-        />
+        {data.map((ticket) => (
+          <BoardTicket key={ticket._id} data={ticket} />
+        ))}
       </div>
     </div>
   );
