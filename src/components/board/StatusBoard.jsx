@@ -8,7 +8,7 @@ import {
   BoardColorRecord,
   BorderTopBoardColorRecord,
 } from "../../constants/BoardColor";
-import BoardTicket from "./BoardTicket";
+import BoardTicket from "./TicketBoard";
 
 export default function Board({ title, data }) {
   const ticketCount = data.length;
