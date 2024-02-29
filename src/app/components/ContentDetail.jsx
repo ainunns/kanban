@@ -1,4 +1,4 @@
-import "./../../../../styles/app/task/detail.css";
+import "./../../styles/app/task/detail.css";
 
 import clsx from "clsx";
 import * as React from "react";
