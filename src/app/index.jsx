@@ -5,7 +5,7 @@ import * as React from "react";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-import Board from "../components/Board/BoardStatus";
+import Board from "../components/board/StatusBoard";
 import Loading from "../components/Loading";
 
 function App() {
