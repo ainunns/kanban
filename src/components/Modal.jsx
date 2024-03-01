@@ -49,7 +49,7 @@ export default function ReactModal({
             )}
             onClick={handleClose}
           >
-            Close
+            Cancel
           </button>
           <button
             className={clsx(

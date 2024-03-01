@@ -6,23 +6,52 @@ import toast from "react-hot-toast";
 import ReactModal from "../../components/Modal";
 import api from "../../lib/api";
 
-export default function ModalCreateTicket({ open, setOpen, status }) {
+export default function ModalEditTicket({ open, setOpen, dataModal }) {
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [dueDate, setDueDate] = React.useState(0);
   const [tags, setTags] = React.useState("");
+  const [status, setStatus] = React.useState("backlog");
+
+  React.useEffect(() => {
+    setTitle(dataModal?.title);
+    setDescription(dataModal?.description);
+    setTags(dataModal?.tags.toString());
+    setStatus(dataModal?.status);
+
+    const dueDate = dataModal?.dueDate
+      ? new Date(dataModal.dueDate).getTime()
+      : null;
+    const currentTime = new Date().getTime();
+
+    if (dueDate !== null) {
+      const timeDifference = Math.max(0, dueDate - currentTime);
+      const daysDifference = Math.ceil(timeDifference / (24 * 60 * 60 * 1000));
+      setDueDate(daysDifference);
+    } else {
+      setDueDate(0);
+    }
+  }, [
+    dataModal?.title,
+    dataModal?.description,
+    dataModal?.dueDate,
+    dataModal?.tags,
+    dataModal?.status,
+  ]);
 
   const onSubmit = () => {
+    const date = new Date();
+    date.setDate(date.getDate() + Number(dueDate));
     const data = {
       title,
       description,
-      dueDate,
+      dueDate: date,
       tags: tags.split(","),
-      status: status.toLowerCase(),
+      status: status,
     };
 
-    api.post(`/task`, data).then(() => {
-      toast.success("Ticket has successfully created");
+    api.put(`/task/${dataModal?._id}`, data).then(() => {
+      toast.success("Ticket has successfully updated");
       setOpen(false);
       window.location.reload();
     });
@@ -32,7 +61,7 @@ export default function ModalCreateTicket({ open, setOpen, status }) {
     <ReactModal
       open={open}
       setOpen={setOpen}
-      title="Add Ticket"
+      title="Edit Ticket"
       action="Save"
       variant="primary"
       handleAction={() => onSubmit()}
@@ -46,6 +75,7 @@ export default function ModalCreateTicket({ open, setOpen, status }) {
             type="text"
             id="title"
             required=""
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
@@ -57,6 +87,7 @@ export default function ModalCreateTicket({ open, setOpen, status }) {
             type="text"
             id="description"
             required=""
+            value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
@@ -68,11 +99,8 @@ export default function ModalCreateTicket({ open, setOpen, status }) {
             type="number"
             id="dueDate"
             required=""
-            onChange={(e) => {
-              const date = new Date();
-              date.setDate(date.getDate() + Number(e.target.value));
-              setDueDate(date);
-            }}
+            value={dueDate}
+            onChange={(e) => setDueDate(e.target.value)}
           />
         </div>
         <div className="input__box">
@@ -84,6 +112,7 @@ export default function ModalCreateTicket({ open, setOpen, status }) {
             type="text"
             id="tags"
             required=""
+            value={tags}
             onChange={(e) => setTags(e.target.value)}
           />
         </div>
