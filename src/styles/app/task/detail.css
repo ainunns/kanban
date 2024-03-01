@@ -1,0 +1,133 @@
+.section__detail {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+
+.section__detail__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.section__detail__content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.section__detail__content__title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.section__detail__content__stats {
+  display: flex;
+  flex-direction: row;
+  column-gap: 8px;
+  align-items: center;
+}
+
+.section__detail__content__stats-gap {
+  column-gap: 4px;
+}
+
+.section__detail__content__stats--status {
+  font-size: 14px;
+  font-weight: 400;
+  color: #657786;
+  text-transform: capitalize;
+  align-items: center;
+}
+
+.section__detail__content__stats--status-icon {
+  font-size: 14px;
+  font-weight: 400;
+  color: #4dfda5;
+}
+
+.section__detail__content__stats--date {
+  font-size: 14px;
+  font-weight: 400;
+  color: #657786;
+}
+
+.section__detail__content__stats--date-icon {
+  font-size: 14px;
+  font-weight: 400;
+  color: #171a21;
+}
+
+.section__detail__content--tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  gap: 8px;
+}
+
+.section__action {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 16px;
+}
+
+@media screen and (max-width: 767px) {
+  .section__action {
+    justify-content: space-between;
+  }
+}
+
+.section__action__button {
+  padding: 8px 16px;
+  border: 2px solid #00bbf9;
+  border-radius: 4px;
+  color: #12151a;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+@media screen and (max-width: 767px) {
+  .section__action__button {
+    padding: 8px 12px;
+    width: 100%;
+  }
+}
+
+.button__primary--filled {
+  background-color: #00bbf9;
+  color: #fefdfd;
+}
+
+.button__primary--filled:hover {
+  background-color: #00a7e1;
+}
+
+.button__primary--outline {
+  background-color: transparent;
+}
+
+.button__primary--outline:hover {
+  background-color: #00bbf9;
+  color: #fefdfd;
+}
+.section__action__button--edit {
+  padding: 4px 8px;
+  border: 2px solid #12151a;
+  background-color: #00bbf9;
+  border-radius: 4px;
+  color: #12151a;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  align-items: center;
+}

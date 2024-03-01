@@ -143,6 +143,12 @@
   font-size: 16px;
   font-weight: 600;
   margin: 0;
+  text-decoration: underline;
+}
+
+.board__content__ticket__title:hover {
+  color: #323131;
+  cursor: pointer;
 }
 
 .board__content__ticket__description {

@@ -8,9 +8,16 @@ import {
   BoardColorRecord,
   BorderTopBoardColorRecord,
 } from "../../constants/BoardColor";
-import BoardTicket from "./BoardTicket";
+import BoardTicket from "./TicketBoard";
 
-export default function Board({ title, data }) {
+export default function Board({
+  title,
+  data,
+  open,
+  setOpen,
+  dataModal,
+  setDataModal,
+}) {
   const ticketCount = data.length;
 
   return (
@@ -52,7 +59,14 @@ export default function Board({ title, data }) {
       </div>
       <div className="board__content">
         {data.map((ticket) => (
-          <BoardTicket key={ticket._id} data={ticket} />
+          <BoardTicket
+            key={ticket._id}
+            data={ticket}
+            open={open}
+            setOpen={setOpen}
+            dataModal={dataModal}
+            setDataModal={setDataModal}
+          />
         ))}
       </div>
     </div>
