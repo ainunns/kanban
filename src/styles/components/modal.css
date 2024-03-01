@@ -70,13 +70,28 @@
   gap: 8px;
 }
 
-.modal__button--outline {
+.modal__button--primary-outline {
   color: #12151a;
+  font-weight: 500;
   background-color: #fdfbfa;
-  border: 2px solid #00bbf9;
+  border: 2px solid #33c9fa;
+}
+
+.modal__button--danger-outline {
+  color: #12151a;
+  font-weight: 500;
+  background-color: #fdfbfa;
+  border: 2px solid #c8654a;
 }
 
 .modal__button--primary {
   color: #12151a;
-  background-color: #00bbf9;
+  font-weight: 500;
+  background-color: #33c9fa;
+}
+
+.modal__button--danger {
+  color: #12151a;
+  font-weight: 500;
+  background-color: #c8654a;
 }

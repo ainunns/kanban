@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import * as React from "react";
 import { FiX } from "react-icons/fi";
 import Modal from "react-overlays/Modal";
@@ -9,6 +10,7 @@ export default function ReactModal({
   action,
   title,
   children,
+  variant,
 }) {
   const handleClose = () => setOpen(false);
 
@@ -35,13 +37,21 @@ export default function ReactModal({
         <div className="modal__content__desc">{children}</div>
         <div className="modal__content__footer">
           <button
-            className="modal__button modal__button--outline"
+            className={clsx(
+              variant === "primary" &&
+                "modal__button modal__button--primary-outline",
+              variant === "danger" &&
+                "modal__button modal__button--danger-outline"
+            )}
             onClick={handleClose}
           >
             Close
           </button>
           <button
-            className="modal__button modal__button--primary"
+            className={clsx(
+              variant === "primary" && "modal__button modal__button--primary",
+              variant === "danger" && "modal__button modal__button--danger"
+            )}
             onClick={handleAction}
           >
             {action}

@@ -7,3 +7,8 @@ export const showFormattedDate = (date) => {
   };
   return new Date(date).toLocaleDateString("id-ID", options);
 };
+
+export const randomColor = () => {
+  const colors = ["primary", "success", "warning", "danger"];
+  return colors[Math.floor(Math.random() * colors.length)];
+};

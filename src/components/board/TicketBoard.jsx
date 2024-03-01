@@ -3,10 +3,9 @@ import "./../../styles/components/board.css";
 import * as React from "react";
 import { FaCalendar } from "react-icons/fa";
 
-import ContentDetail from "../../app/components/ContentDetail";
-import { showFormattedDate } from "../../lib/helper";
+import ModalDetail from "../../app/components/ModalDetail";
+import { randomColor, showFormattedDate } from "../../lib/helper";
 import Chips from "../Chips";
-import ReactModal from "../Modal";
 
 export default function BoardTicket({
   data,
@@ -17,41 +16,9 @@ export default function BoardTicket({
 }) {
   const tags = data.tags;
 
-  const randomColor = () => {
-    const colors = ["primary", "success", "warning", "danger"];
-    return colors[Math.floor(Math.random() * colors.length)];
-  };
-
   return (
     <>
-      <ReactModal
-        open={open}
-        setOpen={setOpen}
-        title="Lihat Detail Task"
-        action="Edit"
-      >
-        <section className="section__detail">
-          <ContentDetail title="" className="section__detail__content--tags">
-            {dataModal?.tags.map((tag) => (
-              <Chips color="primary" key={tag}>
-                {tag}
-              </Chips>
-            ))}
-          </ContentDetail>
-          <ContentDetail title="Title">
-            <p>{dataModal?.title}</p>
-          </ContentDetail>
-          <ContentDetail title="Description">
-            <p>{dataModal?.description}</p>
-          </ContentDetail>
-          <ContentDetail title="Status">
-            <p>{dataModal?.status}</p>
-          </ContentDetail>
-          <ContentDetail title="Due Date">
-            <p>{showFormattedDate(dataModal?.dueDate)}</p>
-          </ContentDetail>
-        </section>
-      </ReactModal>
+      <ModalDetail open={open} setOpen={setOpen} dataModal={dataModal} />
       <div className="board__content__ticket">
         <div className="board__content__ticket__tags">
           {tags.map((tag) => (
