@@ -41,8 +41,7 @@ export default function ModalEditTicket({ open, setOpen, dataModal }) {
 
   const onSubmit = () => {
     const date = new Date();
-    date.setDate(date.getDate() + dueDate);
-    console.log(date);
+    date.setDate(date.getDate() + Number(dueDate));
     const data = {
       title,
       description,
@@ -54,7 +53,7 @@ export default function ModalEditTicket({ open, setOpen, dataModal }) {
     api.put(`/task/${dataModal?._id}`, data).then(() => {
       toast.success("Ticket has successfully updated");
       setOpen(false);
-      // window.location.reload();
+      window.location.reload();
     });
   };
 
