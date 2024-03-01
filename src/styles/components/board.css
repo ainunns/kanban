@@ -73,7 +73,8 @@
   border-top: 12px solid #d68c77;
 }
 
-.board__header__add-ticket {
+.board__header__add-ticket,
+.board__content__ticket__edit {
   margin: 0;
   padding: 8px;
   border-radius: 6px;
@@ -109,10 +110,11 @@
 
 .board__content {
   width: 100%;
-  padding: 0 16px;
+  padding: 0 16px 16px 16px;
   display: flex;
   flex-direction: column;
   row-gap: 12px;
+  overflow-y: auto;
 }
 
 .board__content__ticket {
@@ -124,6 +126,19 @@
   flex-direction: column;
   row-gap: 16px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.board__content__ticket__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 24px;
+}
+
+.board__content__ticket__edit {
+  background-color: transparent;
+  border: 2px solid #66d6fb;
 }
 
 .board__content__ticket__tags {
