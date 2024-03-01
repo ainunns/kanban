@@ -2,7 +2,7 @@ import "./../../styles/app/task/detail.css";
 
 import * as React from "react";
 import toast from "react-hot-toast";
-import { FaCalendar, FaPencilAlt } from "react-icons/fa";
+import { FaCalendar } from "react-icons/fa";
 import { GrStatusGood } from "react-icons/gr";
 
 import Chips from "../../components/Chips";
@@ -48,17 +48,13 @@ export default function ModalDetail({ open, setOpen, dataModal }) {
                 </div>
               </div>
             </div>
-            <button type="button" className="section__action__button--edit">
-              <FaPencilAlt />
-              {"    "}Edit
-            </button>
-          </div>
-          <div className="section__detail__content--tags">
-            {dataModal?.tags.map((tag) => (
-              <Chips color={randomColor()} key={tag}>
-                {tag}
-              </Chips>
-            ))}
+            <div className="section__detail__content--tags">
+              {dataModal?.tags.map((tag) => (
+                <Chips color={randomColor()} key={tag}>
+                  {tag}
+                </Chips>
+              ))}
+            </div>
           </div>
         </div>
         <p>{dataModal?.description}</p>

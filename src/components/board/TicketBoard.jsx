@@ -7,14 +7,9 @@ import ModalDetail from "../../app/components/ModalDetail";
 import { randomColor, showFormattedDate } from "../../lib/helper";
 import Chips from "../Chips";
 
-export default function BoardTicket({
-  data,
-  open,
-  setOpen,
-  dataModal,
-  setDataModal,
-}) {
+export default function BoardTicket({ data, dataModal, setDataModal }) {
   const tags = data.tags;
+  const [open, setOpen] = React.useState(false);
 
   return (
     <>

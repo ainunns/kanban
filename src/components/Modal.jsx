@@ -1,3 +1,5 @@
+import "./../styles/components/modal.css";
+
 import clsx from "clsx";
 import * as React from "react";
 import { FiX } from "react-icons/fi";
@@ -41,7 +43,9 @@ export default function ReactModal({
               variant === "primary" &&
                 "modal__button modal__button--primary-outline",
               variant === "danger" &&
-                "modal__button modal__button--danger-outline"
+                "modal__button modal__button--danger-outline",
+              variant === "success" &&
+                "modal__button modal__button--success-outline"
             )}
             onClick={handleClose}
           >
@@ -50,7 +54,8 @@ export default function ReactModal({
           <button
             className={clsx(
               variant === "primary" && "modal__button modal__button--primary",
-              variant === "danger" && "modal__button modal__button--danger"
+              variant === "danger" && "modal__button modal__button--danger",
+              variant === "success" && "modal__button modal__button--success"
             )}
             onClick={handleAction}
           >
