@@ -10,7 +10,6 @@ import Board from "../components/board/StatusBoard";
 import Loading from "../components/Loading";
 
 function App() {
-  const [open, setOpen] = React.useState(false);
   const [dataModal, setDataModal] = React.useState(null);
   const { data: boardData, isPending: isLoading } = useQuery({
     queryKey: ["/task"],
@@ -44,32 +43,24 @@ function App() {
       </section>
       <section className="container--app">
         <Board
-          open={open}
-          setOpen={setOpen}
           dataModal={dataModal}
           setDataModal={setDataModal}
           title="Backlog"
           data={backlogTickets}
         />
         <Board
-          open={open}
-          setOpen={setOpen}
           dataModal={dataModal}
           setDataModal={setDataModal}
           title="Ready"
           data={readyTickets}
         />
         <Board
-          open={open}
-          setOpen={setOpen}
           dataModal={dataModal}
           setDataModal={setDataModal}
           title="In Progress"
           data={inProgressTickets}
         />
         <Board
-          open={open}
-          setOpen={setOpen}
           dataModal={dataModal}
           setDataModal={setDataModal}
           title="Done"
